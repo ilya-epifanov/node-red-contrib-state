@@ -45,6 +45,7 @@
       numMin: {value:null},
       numMax: {value:null},
       unit: {value:null},         // Valid unit defined in npm:convert-units
+      allowRetrigger: {value:false},
     },
     label: function() {
       if (this.lbl) {
@@ -136,6 +137,12 @@
     Keep this number trim, as history is stored in memory and written to disk on each state change.</span>
 </div>
 
+<div id="allow-retrigger" class="form-row">
+  <label for="node-config-input-allowRetrigger">&nbsp;</label>
+  <input type="checkbox" id="node-config-input-allowRetrigger" style="display:inline-block; width:15px; vertical-align:baseline;">
+  <span>Retrigger on update with an identical value</span>&nbsp;
+</div>
+
 <h4><i class="fa fa-cog"></i> Optional metadata</h4>
 
 <div class="form-row">
@@ -194,6 +201,7 @@
    <li><b>State Name</b> - Name of the persistent shared state. This is the key used to identify the state, and must be a valid JavaScript variable name.</li>
    <li><b>Label</b> - The label that appears on the state node.</li>
    <li><b>History</b> - Number of state changes to keep. Set to 0 for no state save or history.</li>
+   <li><b>Retrigger on update with an identical value</b> - If checked, this will output on state updates with the same value. Un-check this if you want your flow triggered on actual state <i>change</i> only.</li>
  </ul>
  <h4>Optional Metadata</h4>
  Expand the state definition with metadata. This can be used to guarantee a data type, convert units, and provide tags to help find state nodes.
